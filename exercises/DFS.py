@@ -4,6 +4,7 @@ class Node:
     self.left = None
     self.right = None
 
+# stack data structure
 def depth_first_values(root, ls=[], isFirst=True):
     if (root is None):
        return ls 
@@ -35,11 +36,11 @@ if __name__ == "__main__":
     # b.right = e
     # c.right = f
 
-    # #      a
-    # #    /   \
-    # #   b     c
-    # #  / \     \
-    # # d   e     f
+    #      a
+    #    /   \
+    #   b     c
+    #  / \     \
+    # d   e     f
 
     # ls = depth_first_values(a)
     # #   -> ['a', 'b', 'd', 'e', 'c', 'f']
