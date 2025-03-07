@@ -25,7 +25,7 @@ def breadth_first_values(root, ls=[], isFirst=True):
         if current.right:
            queue.append(current.right)
 
-    return values 
+    return values
 
 if __name__ == "__main__":  
     a = Node('a')
