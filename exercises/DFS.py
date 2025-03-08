@@ -6,36 +6,37 @@ class Node:
     self.right = None
 
 # stack data structure
-def depth_first_values(root, ls=[], isFirst=True):
-    if (root is None):
-       return ls 
-    elif (root.left is None and root.right is None): 
-      ls.append(root.val)
-      # return_ls
-      if isFirst:
-        return ls
-      return 
+def depth_first_values(root):
+  stack = [ root ]
+  values = []
 
-    # recursive case 
-    ls.append(root.val)
-    depth_first_values(root.left, ls)
-    depth_first_values(root.right, ls)
+  while len(stack) > 0:
+    node = stack.pop()
+    values.append(node.val)
 
-    # return final ls
-    return ls
+    # append the right child
+    if (node.right):
+        stack.append(node.right)
+    
+    # append the left child
+    if (node.left):
+      stack.append(node.left)
+
+  # return values traversed
+  return values
 
 if __name__ == "__main__":
-    # a = Node('a')
-    # b = Node('b')
-    # c = Node('c')
-    # d = Node('d')
-    # e = Node('e')
-    # f = Node('f')        
-    # a.left = b
-    # a.right = c
-    # b.left = d
-    # b.right = e
-    # c.right = f
+    a = Node('a')
+    b = Node('b')
+    c = Node('c')
+    d = Node('d')
+    e = Node('e')
+    f = Node('f')        
+    a.left = b
+    a.right = c
+    b.left = d
+    b.right = e
+    c.right = f
 
     #      a
     #    /   \
@@ -43,9 +44,9 @@ if __name__ == "__main__":
     #  / \     \
     # d   e     f
 
-    # ls = depth_first_values(a)
-    # #   -> ['a', 'b', 'd', 'e', 'c', 'f']
-    # print(ls)
+    ls = depth_first_values(a)
+    #   -> ['a', 'b', 'd', 'e', 'c', 'f']
+    print(ls)
 
     a = Node('a')
     b = Node('b')
