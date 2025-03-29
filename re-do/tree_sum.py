@@ -4,17 +4,12 @@ class Node:
     self.left = None
     self.right = None
 
-def max_path_sum(root):
+def tree_sum(root):
     if root is None:
-       return float("-inf")
-
-    if root.left is None and root.right is None:
-        return root.val
-
-    left = max_path_sum(root.left)
-    right = max_path_sum(root.right)
-
-    return root.val + max(left, right)
+       return 0
+    left_sum = tree_sum(root.left)
+    right_sum = tree_sum(root.right)
+    return root.val + left_sum + right_sum
 
 if __name__ == "__main__":
     a = Node(3)
@@ -36,4 +31,4 @@ if __name__ == "__main__":
     #  / \      \
     # 4   -2     1
 
-    print(max_path_sum(a)) # -> 18
+    print(tree_sum(a)) # -> 21
